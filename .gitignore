@@ -1,0 +1,31 @@
+﻿# Build output
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Development configuration and secrets
+appsettings.Development.json
+appsettings.*.local.json
+.env
+.env.*
+!.env.example
+secrets.json
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Backups
+*.bak
+*.backup
+*.voice-backup
+*.before-*.bak
+
+# Temporary files
+*.tmp
+*.log

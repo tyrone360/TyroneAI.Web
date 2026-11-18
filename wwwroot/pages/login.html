@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080d19">
+
+    <title>TYRONE AI — Sign In</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+
+    <main class="auth-page">
+
+        <!-- Background atmosphere -->
+        <div class="auth-background">
+            <div class="auth-grid"></div>
+            <div class="auth-glow auth-glow-one"></div>
+            <div class="auth-glow auth-glow-two"></div>
+        </div>
+
+        <!-- Header -->
+        <header class="auth-header">
+
+            <a href="/welcome.html" class="back-link">
+                <span>←</span> Back to welcome
+            </a>
+
+        </header>
+
+        <!-- Main content -->
+        <section class="auth-layout">
+
+            <!-- Left feature showcase -->
+            <section class="auth-showcase">
+
+                <div class="auth-feature-slides" id="authFeatureSlides">
+
+                    <article class="auth-feature-slide active" data-auth-slide="0">
+
+                        <span class="feature-number">01 — INTELLIGENCE</span>
+
+                        <h1>
+                            A smarter way<br>
+                            to <span>think.</span>
+                        </h1>
+
+                        <p>
+                            Ask questions, explore possibilities and turn
+                            complicated thoughts into clear ideas.
+                        </p>
+
+                    </article>
+
+                    <article class="auth-feature-slide" data-auth-slide="1">
+
+                        <span class="feature-number">02 — CREATIVITY</span>
+
+                        <h1>
+                            Imagine more.<br>
+                            <span>Create more.</span>
+                        </h1>
+
+                        <p>
+                            Brainstorm, write, plan and bring your ideas
+                            to life with your AI companion.
+                        </p>
+
+                    </article>
+
+                    <article class="auth-feature-slide" data-auth-slide="2">
+
+                        <span class="feature-number">03 — PRODUCTIVITY</span>
+
+                        <h1>
+                            Make every<br>
+                            moment <span>count.</span>
+                        </h1>
+
+                        <p>
+                            Organise your thoughts, solve problems
+                            and make progress on the things that matter.
+                        </p>
+
+                    </article>
+
+                </div>
+
+                <!-- Feature slideshow controls -->
+                <div class="auth-showcase-controls">
+
+                    <div class="auth-feature-dots" id="authFeatureDots">
+
+                        <button type="button" class="auth-feature-dot active"
+                                data-auth-slide-to="0"
+                                aria-label="Show intelligence feature"></button>
+
+                        <button type="button" class="auth-feature-dot"
+                                data-auth-slide-to="1"
+                                aria-label="Show creativity feature"></button>
+
+                        <button type="button" class="auth-feature-dot"
+                                data-auth-slide-to="2"
+                                aria-label="Show productivity feature"></button>
+
+                    </div>
+
+                    <span class="showcase-caption">YOUR WORLD. YOUR AI.</span>
+
+                </div>
+
+                <!-- Visual centrepiece -->
+                <div class="auth-visual">
+
+                    <div class="auth-orbit auth-orbit-one"></div>
+                    <div class="auth-orbit auth-orbit-two"></div>
+                    <div class="auth-orbit auth-orbit-three"></div>
+
+                    <div class="auth-visual-core">
+                        <div class="auth-core-inner"></div>
+                        <span>T</span>
+                    </div>
+
+                    <div class="auth-visual-particle particle-a"></div>
+                    <div class="auth-visual-particle particle-b"></div>
+                    <div class="auth-visual-particle particle-c"></div>
+
+                    <div class="auth-floating-label">
+                        <span>✦</span>
+                        <div>
+                            <strong>Meet Tyrone</strong>
+                            <small>Your AI companion</small>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="auth-showcase-footer">
+                    <span>THINK.</span>
+                    <span>CREATE.</span>
+                    <span>EXPLORE.</span>
+                </div>
+
+            </section>
+
+          <!-- AUTHENTICATION TABS -->
+<div class="auth-tabs">
+    <button type="button" class="auth-tab active" id="signInTab">
+        Sign In
+    </button>
+
+    <button type="button" class="auth-tab" id="registerTab">
+        Create Account
+    </button>
+</div>
+<!-- SIGN IN FORM -->
+<form id="signInForm" class="auth-form">
+
+    <div class="form-group">
+        <label for="loginIdentity">Username or Email</label>
+        <input
+            type="text"
+            id="loginIdentity"
+            name="identity"
+            placeholder="Enter your username or email"
+            autocomplete="username"
+            required
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="loginPassword">Password</label>
+
+        <div class="password-input-wrap">
+            <input
+                type="password"
+                id="loginPassword"
+                name="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+            >
+
+            <button
+                type="button"
+                class="password-toggle"
+                data-password-toggle="loginPassword"
+                aria-label="Show password"
+                aria-pressed="false"
+            >Show</button>
+        </div>
+    </div>
+
+   <div class="auth-form-options">
+    <a href="/pages/forgot-password.html" class="forgot-password-link">
+        Forgot password?
+    </a>
+</div>
+
+<button type="submit" class="auth-submit">
+    Sign In <span class="submit-arrow">→</span>
+</button>
+
+</form>
+
+<!-- REGISTRATION FORM -->
+<form id="registerForm" class="auth-form" hidden>
+
+    <div class="form-group">
+        <label for="registerFirstName">First Name</label>
+        <input
+            type="text"
+            id="registerFirstName"
+            name="firstName"
+            placeholder="Your first name"
+            autocomplete="given-name"
+            required
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="registerUsername">Username</label>
+        <input
+            type="text"
+            id="registerUsername"
+            name="username"
+            placeholder="Choose a username"
+            autocomplete="username"
+            required
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="registerEmail">Email Address</label>
+        <input
+            type="email"
+            id="registerEmail"
+            name="email"
+            placeholder="you@gmail.com"
+            autocomplete="email"
+            required
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="registerPassword">Password</label>
+
+        <div class="password-input-wrap">
+            <input
+                type="password"
+                id="registerPassword"
+                name="password"
+                placeholder="Create a password"
+                autocomplete="new-password"
+                minlength="8"
+                required
+            >
+
+            <button
+                type="button"
+                class="password-toggle"
+                data-password-toggle="registerPassword"
+                aria-label="Show password"
+                aria-pressed="false"
+            >Show</button>
+        </div>
+
+        <div class="password-strength" id="passwordStrength">
+            <div class="password-strength-track">
+                <span id="passwordStrengthBar"></span>
+            </div>
+
+            <div class="password-strength-info">
+                <span>Password strength</span>
+                <strong id="passwordStrengthText">Not entered</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+
+        <div class="password-input-wrap">
+            <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Enter your password again"
+                autocomplete="new-password"
+                minlength="8"
+                required
+            >
+
+            <button
+                type="button"
+                class="password-toggle"
+                data-password-toggle="confirmPassword"
+                aria-label="Show password"
+                aria-pressed="false"
+            >Show</button>
+        </div>
+    </div>
+
+    <button type="submit" class="auth-submit">
+        Create Account <span class="submit-arrow">→</span>
+    </button>
+
+</form>
+
+
+
+                    <!-- Feedback -->
+                    <p class="auth-message"
+                       id="authMessage"
+                       role="status"
+                       aria-live="polite"></p>
+
+
+                    <p class="auth-footer">
+                        By continuing, you agree to use Tyrone AI responsibly.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="/js/login.js"></script>
+
+</body>
+</html>

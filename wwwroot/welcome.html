@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#070b16">
+
+    <title>TYRONE AI — Your World. Your AI.</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/welcome.css">
+</head>
+
+<body>
+
+    <main class="welcome-screen" id="welcomeScreen">
+
+        <!-- Animated background -->
+        <div class="welcome-background">
+            <div class="background-grid"></div>
+            <div class="ambient-glow glow-one"></div>
+            <div class="ambient-glow glow-two"></div>
+            <div class="ambient-glow glow-three"></div>
+            <div class="background-noise"></div>
+        </div>
+
+
+        <!-- Main slideshow -->
+        <section class="welcome-showcase" aria-label="Discover Tyrone AI">
+
+            <div class="showcase-content">
+
+                <div class="showcase-label">
+                    <span class="label-line"></span>
+                    <span>WELCOME TO SOMETHING DIFFERENT</span>
+                </div>
+
+                <div class="welcome-slides" id="welcomeSlides">
+
+                    <!-- Slide 1 -->
+                    <article class="welcome-slide active" data-slide="0">
+
+                        <span class="slide-number">01 / 04</span>
+
+                        <h1>
+                            Meet your<br>
+                            <span>new intelligence.</span>
+                        </h1>
+
+                        <p>
+                            More than an assistant. A smarter companion
+                            designed to help you think, create and move forward.
+                        </p>
+
+                    </article>
+
+                    <!-- Slide 2 -->
+                    <article class="welcome-slide" data-slide="1">
+
+                        <span class="slide-number">02 / 04</span>
+
+                        <h1>
+                            Think beyond<br>
+                            <span>the ordinary.</span>
+                        </h1>
+
+                        <p>
+                            Explore ideas, ask questions and turn complicated
+                            thoughts into something clear and meaningful.
+                        </p>
+
+                    </article>
+
+                    <!-- Slide 3 -->
+                    <article class="welcome-slide" data-slide="2">
+
+                        <span class="slide-number">03 / 04</span>
+
+                        <h1>
+                            Create without<br>
+                            <span>limits.</span>
+                        </h1>
+
+                        <p>
+                            Brainstorm, write, plan and bring your next
+                            big idea to life with Tyrone by your side.
+                        </p>
+
+                    </article>
+
+                    <!-- Slide 4 -->
+                    <article class="welcome-slide" data-slide="3">
+
+                        <span class="slide-number">04 / 04</span>
+
+                        <h1>
+                            Your world.<br>
+                            <span>Your AI.</span>
+                        </h1>
+
+                        <p>
+                            Your journey starts here. Meet Tyrone AI
+                            and discover what you can accomplish together.
+                        </p>
+
+                    </article>
+
+                </div>
+
+                <!-- Slideshow controls -->
+                <div class="showcase-controls">
+
+                    <div class="slide-indicators" id="slideIndicators">
+
+                        <button type="button" class="slide-dot active"
+                                data-slide-to="0" aria-label="Show slide 1"></button>
+
+                        <button type="button" class="slide-dot"
+                                data-slide-to="1" aria-label="Show slide 2"></button>
+
+                        <button type="button" class="slide-dot"
+                                data-slide-to="2" aria-label="Show slide 3"></button>
+
+                        <button type="button" class="slide-dot"
+                                data-slide-to="3" aria-label="Show slide 4"></button>
+
+                    </div>
+
+                    <div class="slide-arrows">
+
+                        <button type="button" id="previousSlide"
+                                aria-label="Previous slide">←</button>
+
+                        <button type="button" id="nextSlide"
+                                aria-label="Next slide">→</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Futuristic visual -->
+            <div class="showcase-visual">
+
+                <div class="visual-orbit orbit-one"></div>
+                <div class="visual-orbit orbit-two"></div>
+                <div class="visual-orbit orbit-three"></div>
+
+                <div class="visual-core">
+
+                    <div class="core-ring"></div>
+                    <div class="core-inner"></div>
+
+                    <div class="core-symbol">T</div>
+
+                    <div class="core-light"></div>
+
+                </div>
+
+                <div class="visual-particle particle-one"></div>
+                <div class="visual-particle particle-two"></div>
+                <div class="visual-particle particle-three"></div>
+                <div class="visual-particle particle-four"></div>
+
+
+                <div class="floating-card floating-card-top">
+                    <span class="floating-icon">✦</span>
+                    <span>
+                        <strong>Think smarter</strong>
+                        <small>Ideas start here</small>
+                    </span>
+                </div>
+
+                <div class="floating-card floating-card-bottom">
+                    <span class="floating-icon">⌁</span>
+                    <span>
+                        <strong>Create more</strong>
+                        <small>Your possibilities are endless</small>
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Bottom entrance area -->
+        <footer class="welcome-bottom">
+
+            <div class="welcome-bottom-copy">
+                <span class="bottom-eyebrow">THE FUTURE IS PERSONAL</span>
+                <span class="bottom-description">
+                    Intelligence that moves with you.
+                </span>
+            </div>
+
+            <button type="button" class="swipe-area" id="swipeArea"
+                    aria-label="Enter Tyrone AI">
+
+                <span class="swipe-icon">↑</span>
+
+                <span class="swipe-text">
+                    <strong>SWIPE UP TO ENTER</strong>
+                    <small>YOUR JOURNEY STARTS HERE</small>
+                </span>
+
+                <span class="swipe-arrow">↗</span>
+
+            </button>
+        </footer>
+
+    </main>
+
+    <script src="/js/welcome.js"></script>
+
+</body>
+</html>

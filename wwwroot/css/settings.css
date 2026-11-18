@@ -1,0 +1,436 @@
+
+/* =========================================
+   TYRONE AI — SETTINGS PAGE
+   Premium Glass Interface
+========================================= */
+
+.settings-main {
+    min-width: 0;
+    padding: 0 34px 30px;
+}
+
+/* Hero */
+
+.settings-hero {
+    max-width: 780px;
+    padding: 45px 0 30px;
+}
+
+.settings-eyebrow {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: 2px;
+}
+
+.settings-hero h1 {
+    margin: 14px 0;
+    color: var(--text);
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.settings-hero h1 span {
+    color: var(--accent);
+}
+
+.settings-hero p {
+    max-width: 560px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Settings tabs */
+
+.settings-tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px;
+    margin-bottom: 30px;
+    width: fit-content;
+    max-width: 100%;
+    overflow-x: auto;
+
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+}
+
+.settings-tab {
+    flex-shrink: 0;
+    padding: 11px 17px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.settings-tab:hover {
+    color: var(--text);
+    background: var(--surface-hover);
+}
+
+.settings-tab.active {
+    color: white;
+    background: var(--accent);
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Content */
+
+.settings-content {
+    display: none;
+    max-width: 850px;
+    animation: settingsEnter 0.3s ease;
+}
+
+.settings-content.active {
+    display: block;
+}
+
+@keyframes settingsEnter {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.settings-section-heading {
+    margin-bottom: 20px;
+}
+
+.settings-section-heading h2 {
+    color: var(--text);
+    font-size: 21px;
+    margin: 0 0 7px;
+}
+
+.settings-section-heading p {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 0;
+}
+
+/* Cards */
+
+.settings-card {
+    padding: 8px 24px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    background: var(--glass);
+
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.settings-row {
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.settings-row:last-child {
+    border-bottom: none;
+}
+
+.settings-row h3 {
+    margin: 0 0 6px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.settings-row p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* Select and input */
+
+.settings-row select,
+.settings-row input[type="text"] {
+    width: 190px;
+    max-width: 45%;
+    height: 42px;
+    padding: 0 13px;
+
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    outline: none;
+
+    background: var(--surface);
+    color: var(--text);
+
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.settings-row select:focus,
+.settings-row input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(82, 135, 255, 0.12);
+}
+
+/* Information labels */
+
+.settings-info {
+    padding: 8px 12px;
+    border-radius: 9px;
+    background: var(--surface-hover);
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* Toggle switch */
+
+.settings-switch {
+    position: relative;
+    width: 46px;
+    height: 26px;
+    flex-shrink: 0;
+}
+
+.settings-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.settings-switch span {
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    background: var(--surface-hover);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.settings-switch span::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 3px;
+    top: 3px;
+    border-radius: 50%;
+    background: var(--muted);
+    transition: 0.25s;
+}
+
+.settings-switch input:checked + span {
+    background: var(--accent);
+}
+
+.settings-switch input:checked + span::before {
+    transform: translateX(20px);
+    background: white;
+}
+
+/* Save preferences */
+
+.settings-save-area {
+    max-width: 850px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+    margin-bottom: 45px;
+}
+
+#saveSettingsButton {
+    min-height: 46px;
+    padding: 0 25px;
+    border: none;
+    border-radius: 12px;
+    background: var(--accent);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#saveSettingsButton:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+    .settings-main {
+        width: 100%;
+        padding: 0 18px 120px;
+    }
+
+    .settings-hero {
+        padding-top: 30px;
+    }
+
+    .settings-tabs {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .settings-tab {
+        padding: 10px 13px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .settings-main {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .settings-hero h1 {
+        font-size: 37px;
+    }
+
+    .settings-hero p {
+        font-size: 13px;
+    }
+
+    .settings-card {
+        padding: 5px 16px;
+        border-radius: 16px;
+    }
+
+    .settings-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 13px;
+        padding: 17px 0;
+    }
+
+    .settings-row select,
+    .settings-row input[type="text"] {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .settings-switch {
+        align-self: flex-start;
+    }
+
+    .settings-save-area {
+        width: 100%;
+    }
+
+    #saveSettingsButton {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   COMPACT MOBILE NAVIGATION
+========================================= */
+
+@media (max-width: 900px) {
+
+    .settings-mobile-nav {
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        width: auto;
+        min-height: 54px;
+        height: 54px;
+        padding: 5px 7px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 2px;
+
+        background: rgba(20, 25, 38, 0.68);
+        border: 1px solid var(--border);
+        border-radius: 17px;
+
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+
+        z-index: 1000;
+    }
+
+    .settings-mobile-nav .mobile-nav-item {
+        flex: 1;
+        min-width: 0;
+        min-height: 42px;
+        padding: 4px 2px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 9px;
+        line-height: 1;
+        font-weight: 600;
+        border-radius: 10px;
+    }
+
+    .settings-mobile-nav .nav-icon {
+        font-size: 17px;
+        line-height: 1;
+    }
+
+    .settings-mobile-nav .mobile-nav-item.active {
+        color: var(--accent);
+        background: var(--surface-hover);
+    }
+
+    .settings-main {
+        padding-bottom: 85px;
+    }
+}
+
+/* Smaller phones */
+@media (max-width: 380px) {
+
+    .settings-mobile-nav {
+        left: 7px;
+        right: 7px;
+        height: 50px;
+        min-height: 50px;
+        padding: 4px;
+    }
+
+    .settings-mobile-nav .mobile-nav-item {
+        font-size: 8px;
+        min-height: 40px;
+    }
+
+    .settings-mobile-nav .nav-icon {
+        font-size: 15px;
+    }
+}

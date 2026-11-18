@@ -1,0 +1,743 @@
+﻿
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080b14">
+    <meta name="description" content="Meet Tyrone, your personal AI companion.">
+    <title>Tyrone Your Personal Companion</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="app-shell">
+
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+               <div class="brand-icon">
+    <img src="/images/tyrone-avatar.png" alt="Tyrone AI">
+</div>
+                <div>
+                    <h2>TYRONE<span>AI</span></h2>
+                    <small>PERSONAL COMPANION</small>
+                </div>
+            </div>
+
+            <button type="button" class="new-chat" id="newChatButton">
+                &#43; New conversation
+            </button>
+
+            <div class="sidebar-label">WORKSPACE</div>
+
+
+<nav class="side-nav">
+    <a href="#" class="active" data-page="home">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/>
+        </svg>
+        <span>Home</span>
+    </a>
+
+    <a href="#" data-page="conversations">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/>
+        </svg>
+        <span>Conversations</span>
+    </a>
+
+    <a href="#" data-page="discover">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3M11 7v8M7 11h8"/>
+        </svg>
+        <span>Discover</span>
+    </a>
+
+    <a href="#" data-page="history">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 12a9 9 0 1 0 3-6.7L3 8"/>
+            <path d="M3 3v5h5M12 7v5l3 2"/>
+        </svg>
+        <span>History</span>
+    </a>
+</nav>
+
+
+            <div class="sidebar-label">YOUR CONVERSATIONS</div>
+
+            <div class="conversation-list" id="conversationList">
+                <p class="conversation-empty">Your conversations will appear here.</p>
+            </div>
+
+            <div class="sidebar-bottom">
+                <a href="pages/settings.html">&#9881; <span>Settings</span></a>
+                <a href="#" data-page="help">? <span>Help &amp; Support</span></a>
+
+
+<div class="account-menu" id="accountMenu">
+
+    <button
+        type="button"
+        class="profile"
+        id="accountMenuButton"
+        aria-expanded="false"
+        aria-controls="accountDropdown"
+    >
+        <div class="profile-avatar">
+            <img src="/images/tyrone-avatar.png" alt="Your profile">
+        </div>
+
+        <div class="profile-info">
+            <strong id="sidebarName">Guest User</strong>
+            <small id="sidebarUsername">Personal account</small>
+        </div>
+
+        <span class="profile-menu-arrow">⌄</span>
+    </button>
+
+    <section class="account-dropdown" id="accountDropdown" hidden>
+
+        <div class="account-dropdown-heading">
+            <span class="account-eyebrow">YOUR ACCOUNT</span>
+            <strong id="accountFullName">Guest User</strong>
+            <span id="accountUsername">@username</span>
+            <span id="accountEmail">email@example.com</span>
+        </div>
+
+        <div class="account-dropdown-divider"></div>
+
+        <button
+            type="button"
+            class="account-signout"
+            id="signOutButton"
+        >
+            <span>↪</span>
+            Sign Out
+        </button>
+
+    </section>
+</div>
+
+        </aside>
+
+        <main class="main-content" id="mainContent">
+
+            <header class="topbar">
+                <button class="menu-button" id="menuButton" aria-label="Open menu">
+                    &#9776;
+                </button>
+
+                <div class="breadcrumb">
+                    <span>Workspace</span> / <strong id="breadcrumbTitle">Home</strong>
+                </div>
+
+                <div class="top-actions">
+                    <button class="icon-button" id="themeButton" title="Toggle theme">
+                        &#9788;
+                    </button>
+                </div>
+            </header>
+
+            <section class="welcome-section" id="welcomeSection">
+                <div class="welcome-copy">
+                    <div class="status">
+                        <span class="status-dot"></span>
+                        YOUR AI COMPANION IS ONLINE
+                    </div>
+
+                    <h1>Good to have you here<span id="userName">.</span></h1>
+
+                    <p>
+                        A new perspective, a fresh idea, or just someone to talk to.
+                        I'm here whenever you need me.
+                    </p>
+                </div>
+
+                <div class="date-label" id="currentDate"></div>
+            </section>
+
+            <section class="companion-section" id="companionSection">
+                <div class="companion-glow"></div>
+
+                <div class="companion-content">
+
+<div class="ai-status">
+    <span class="status-dot"></span>
+    TYRONE AI
+
+    <span class="voice-waveform" id="tyroneVoiceWaveform"
+          aria-label="Tyrone voice activity" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </span>
+</div>
+
+
+                   <div class="avatar-placeholder" id="tyroneAvatar">
+    <div class="avatar-ring ring-one"></div>
+    <div class="avatar-ring ring-two"></div>
+
+    <div class="avatar-image-wrapper">
+        <img
+            src="/images/tyrone-avatar.png"
+            alt="Tyrone AI digital companion"
+            class="avatar-image"
+        />
+    </div>
+</div>
+
+                    <h2>I'm Tyrone.</h2>
+                    <p>Your intelligence. Your companion. Your space.</p>
+
+                    <button type="button" class="talk-button" id="talkButton">
+                        <span>&#9678;</span>
+                        Start a conversation
+                    </button>
+
+                   <small class="voice-note">
+    Your AI companion is ready · Voice enabled
+</small>
+                </div>
+            </section>
+
+
+<!-- Chat interface -->
+<section class="chat-panel" id="chatPanel" hidden>
+    <div class="chat-header">
+
+        <div class="chat-header-identity">
+
+            <div class="chat-avatar" id="chatTyroneAvatar" data-state="idle">
+                <img
+                    src="/images/tyrone-avatar.png"
+                    alt="Tyrone AI"
+                    class="chat-avatar-image"
+                />
+                <span class="chat-avatar-status"></span>
+            </div>
+
+            <div class="chat-header-info">
+                <div class="ai-status">
+                    <span class="status-dot"></span>
+                    TYRONE AI
+                </div>
+
+                <h2 id="chatTitle">New conversation</h2>
+
+                <span class="chat-avatar-activity" id="chatAvatarActivity">
+                    Your AI companion
+                </span>
+            </div>
+
+        </div>
+
+        <div class="chat-header-actions">
+
+    <button
+        type="button"
+        id="voiceReplyButton"
+        class="voice-reply-button"
+        aria-pressed="false"
+        title="Enable spoken replies"
+    >
+        <span class="voice-reply-icon">♫</span>
+        <span id="voiceReplyLabel">Voice off</span>
+    </button>
+</div>
+                </div>
+
+                <div class="chat-messages" id="chatMessages" aria-live="polite">
+                    <div class="message assistant-message">
+                        <div class="message-avatar">T</div>
+                        <div class="message-content">
+                            <strong>Tyrone</strong>
+                            <p>Hello! I'm Tyrone. What would you like to talk about?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="typing-indicator" id="typingIndicator" hidden>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <small>Tyrone is thinking...</small>
+                </div>
+
+                <form class="chat-composer" id="chatForm">
+                    <textarea
+                        id="messageInput"
+                        name="message"
+                        placeholder="Message Tyrone..."
+                        rows="1"
+                        maxlength="10000"
+                        aria-label="Write a message"
+                        required
+                    ></textarea>
+
+                 <button
+    type="button"
+    id="voiceButton"
+    class="voice-button"
+    aria-label="Start voice input"
+    title="Speak to Tyrone"
+>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z"/>
+        <path d="M19 11a7 7 0 0 1-14 0M12 18v4m-4 0h8"/>
+    </svg>
+</button>
+
+<button type="submit" id="sendButton" aria-label="Send message">
+    &#10148;
+</button>
+                </form>
+
+                <p class="chat-disclaimer">
+                    Tyrone runs locally on your computer. AI responses can make mistakes.
+                </p>
+            </section>
+
+            <section class="quick-section" id="quickSection">
+                <div class="section-heading">
+                    <div>
+                        <h2>What can we do today?</h2>
+                        <p>Choose a starting point or simply say hello.</p>
+                    </div>
+                </div>
+
+                <div class="quick-grid">
+                    <button class="quick-card" data-prompt="Help me explore some creative ideas.">
+                        <span class="quick-icon">&#10022;</span>
+                        <strong>Creative thinking</strong>
+                        <small>Explore ideas and inspiration</small>
+                    </button>
+
+                    <button class="quick-card" data-prompt="Help me plan my work and organise my tasks.">
+                        <span class="quick-icon">&#8984;</span>
+                        <strong>Work &amp; productivity</strong>
+                        <small>Plan, organise and get things done</small>
+                    </button>
+
+                    <button class="quick-card" data-prompt="Teach me something interesting today.">
+                        <span class="quick-icon">&#9635;</span>
+                        <strong>Learn something</strong>
+                        <small>Discover knowledge and skills</small>
+                    </button>
+
+                    <button class="quick-card" data-prompt="I'd like to have a conversation with you.">
+                        <span class="quick-icon">&#9678;</span>
+                        <strong>Just talk</strong>
+                        <small>Have a conversation with Tyrone</small>
+                    </button>
+                </div>
+            </section>
+
+<!-- =====================================
+     TYRONE AI — CONVERSATION HISTORY
+===================================== -->
+
+<section class="history-page" id="historyPage" hidden>
+
+    <!-- PAGE HEADER -->
+    <header class="history-header">
+        <div class="history-header-content">
+            <div class="history-eyebrow">
+                <span class="status-dot"></span>
+                YOUR PERSONAL ARCHIVE
+            </div>
+
+            <h1>Conversation History</h1>
+
+            <p>
+                Every conversation matters.
+                Pick up where you left off with Tyrone.
+            </p>
+        </div>
+
+        <div class="history-header-icon">
+            <span>◷</span>
+        </div>
+    </header>
+
+    <!-- STATISTICS -->
+    <div class="history-stats">
+
+        <article class="history-stat-card">
+            <div class="history-stat-icon">◷</div>
+            <div class="history-stat-info">
+                <strong id="historyCount">0</strong>
+                <span>Total conversations</span>
+            </div>
+        </article>
+
+        <article class="history-stat-card">
+            <div class="history-stat-icon">✦</div>
+            <div class="history-stat-info">
+                <strong>TYRONE AI</strong>
+                <span>Your personal archive</span>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- SEARCH AND ACTIONS -->
+    <div class="history-toolbar">
+
+        <div class="history-search">
+            <span class="history-search-icon">&#9906;</span>
+
+            <input
+                type="search"
+                id="historySearch"
+                placeholder="Search your conversations..."
+                aria-label="Search conversation history"
+            >
+        </div>
+
+        <button
+            type="button"
+            id="refreshHistoryButton"
+            class="history-refresh"
+        >
+            <span>&#8635;</span>
+            Refresh
+        </button>
+
+    </div>
+
+    <!-- FILTER LABEL -->
+    <div class="history-section-heading">
+        <div>
+            <h2>All conversations</h2>
+            <p>Your previous interactions with Tyrone</p>
+        </div>
+
+        <span class="history-live-label">
+            <span></span>
+            SAVED
+        </span>
+    </div>
+
+    <!-- CONVERSATION LIST -->
+    <div class="history-list" id="historyList">
+
+        <div class="history-empty">
+
+            <div class="history-empty-icon">
+                <span>◷</span>
+            </div>
+
+            <h3>Your story starts here</h3>
+
+            <p>
+                Your conversations with Tyrone
+                will appear here.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="history-footer">
+        <span>TYRONE AI</span>
+        <span>YOUR SPACE. YOUR CONVERSATIONS.</span>
+    </div>
+
+</section>
+
+<!-- END HISTORY PAGE -->
+
+
+  <!-- END HISTORY PAGE -->
+
+
+<!-- SETTINGS PAGE -->
+<section class="settings-page" id="settingsPage" hidden>
+
+    <div class="settings-heading">
+        <div>
+            <div class="status">
+                <span class="status-dot"></span>
+                PERSONALISE YOUR EXPERIENCE
+            </div>
+
+            <h1>Settings</h1>
+            <p>Make Tyrone AI feel more like your own space.</p>
+        </div>
+    </div>
+
+    <!-- Appearance -->
+    <div class="settings-card">
+        <div class="settings-card-heading">
+            <span class="settings-icon">◐</span>
+            <div>
+                <h2>Appearance</h2>
+                <p>Customise how Tyrone AI looks.</p>
+            </div>
+        </div>
+
+        <div class="setting-row">
+            <div>
+                <strong>Theme</strong>
+                <small>Choose your preferred appearance.</small>
+            </div>
+            <select id="settingsTheme">
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+            </select>
+        </div>
+
+        <div class="setting-row">
+            <div>
+                <strong>Accent colour</strong>
+                <small>Choose your interface highlight colour.</small>
+            </div>
+            <select id="settingsAccent">
+                <option value="blue">Electric Blue</option>
+                <option value="purple">Purple</option>
+                <option value="cyan">Cyan</option>
+                <option value="green">Emerald</option>
+                <option value="orange">Orange</option>
+            </select>
+        </div>
+
+        <div class="setting-row">
+            <div>
+                <strong>Font style</strong>
+                <small>Choose your preferred interface font.</small>
+            </div>
+            <select id="settingsFont">
+                <option value="system">System Default</option>
+                <option value="modern">Modern</option>
+                <option value="classic">Classic</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Voice -->
+    <div class="settings-card">
+        <div class="settings-card-heading">
+            <span class="settings-icon">♫</span>
+            <div>
+                <h2>Voice & Speech</h2>
+                <p>Manage how you communicate with Tyrone.</p>
+            </div>
+        </div>
+
+        <div class="setting-row">
+            <div>
+                <strong>Spoken replies</strong>
+                <small>Allow Tyrone to speak his responses.</small>
+            </div>
+            <span class="setting-status">Manage in chat</span>
+        </div>
+
+        <div class="setting-row">
+            <div>
+                <strong>Voice input</strong>
+                <small>Use your microphone to talk to Tyrone.</small>
+            </div>
+            <span class="setting-status">Browser supported</span>
+        </div>
+    </div>
+
+    <!-- Personalisation -->
+    <div class="settings-card">
+        <div class="settings-card-heading">
+            <span class="settings-icon">♙</span>
+            <div>
+                <h2>Personalisation</h2>
+                <p>Make your experience more personal.</p>
+            </div>
+        </div>
+
+        <div class="setting-row">
+            <div>
+                <strong>Your display name</strong>
+                <small>The name Tyrone uses when greeting you.</small>
+            </div>
+            <input
+                type="text"
+                id="settingsDisplayName"
+                placeholder="Enter your name"
+                maxlength="40"
+            >
+        </div>
+    </div>
+
+    <!-- Privacy -->
+    <div class="settings-card">
+        <div class="settings-card-heading">
+            <span class="settings-icon">◇</span>
+            <div>
+                <h2>Privacy & Security</h2>
+                <p>Manage your personal experience and data.</p>
+            </div>
+        </div>
+
+        <div class="setting-row">
+            <div>
+                <strong>Conversation storage</strong>
+                <small>Review how your conversations are stored.</small>
+            </div>
+            <span class="setting-status">Local storage</span>
+        </div>
+    </div>
+
+    <div class="settings-actions">
+        <button type="button" id="saveSettingsButton">
+            Save preferences
+        </button>
+    </div>
+
+</section>
+<!-- END SETTINGS PAGE -->
+
+        </main>
+    </div>
+
+
+<nav class="mobile-nav">
+    <a href="#" class="active" data-page="home">
+        &#8962;<small>Home</small>
+    </a>
+
+    <a href="#" data-page="conversations">
+        &#9678;<small>Chats</small>
+    </a>
+
+    <a href="#" data-page="discover">
+        &#10022;<small>Discover</small>
+    </a>
+
+    <a href="#" data-page="history">
+        &#9719;<small>History</small>
+    </a>
+
+    <a href="pages/settings.html">
+        &#9881;<small>Settings</small>
+    </a>
+</nav>
+
+
+<script src="/js/app.js?v=3"></script>
+
+<!-- GLOBAL APPEARANCE CONTROL -->
+<div class="global-appearance" id="globalAppearance">
+
+    <button
+        type="button"
+        class="appearance-toggle"
+        id="globalAppearanceToggle"
+        aria-label="Open appearance settings"
+        aria-expanded="false"
+    >
+        <span>✦</span>
+        <span>Appearance</span>
+    </button>
+
+    <section
+        class="appearance-panel"
+        id="globalAppearancePanel"
+        aria-label="Appearance settings"
+        hidden
+    >
+        <div class="appearance-panel-header">
+            <div>
+                <span class="appearance-eyebrow">PERSONALISATION</span>
+                <h3>Appearance</h3>
+                <p>Customise your Tyrone AI experience.</p>
+            </div>
+
+            <button
+                type="button"
+                id="closeAppearancePanel"
+                aria-label="Close appearance settings"
+            >×</button>
+        </div>
+
+        <div class="appearance-control">
+            <label for="globalThemeSelect">Interface theme</label>
+            <select id="globalThemeSelect">
+                <option value="dark">Dark mode</option>
+                <option value="light">Light mode</option>
+            </select>
+        </div>
+
+
+<div class="appearance-control">
+    <label>Accent colour</label>
+
+    <div class="accent-swatches" id="accentSwatches">
+
+        <button type="button"
+            class="accent-swatch"
+            data-accent="blue"
+            aria-label="Electric Blue"
+            title="Electric Blue">
+            <span style="--swatch-colour: #5287ff"></span>
+        </button>
+
+        <button type="button"
+            class="accent-swatch"
+            data-accent="purple"
+            aria-label="Purple"
+            title="Purple">
+            <span style="--swatch-colour: #9b72f2"></span>
+        </button>
+
+        <button type="button"
+            class="accent-swatch"
+            data-accent="cyan"
+            aria-label="Cyan"
+            title="Cyan">
+            <span style="--swatch-colour: #22c5d8"></span>
+        </button>
+
+        <button type="button"
+            class="accent-swatch"
+            data-accent="green"
+            aria-label="Emerald"
+            title="Emerald">
+            <span style="--swatch-colour: #20b889"></span>
+        </button>
+
+        <button type="button"
+            class="accent-swatch"
+            data-accent="orange"
+            aria-label="Orange"
+            title="Orange">
+            <span style="--swatch-colour: #f59e42"></span>
+        </button>
+
+    </div>
+
+    <span class="accent-selected-label" id="accentSelectedLabel">
+        Electric Blue
+    </span>
+</div>
+
+
+        <div class="appearance-control">
+            <label for="globalFontSelect">Typography</label>
+            <select id="globalFontSelect">
+                <option value="system">System</option>
+                <option value="modern">Modern</option>
+                <option value="classic">Classic</option>
+            </select>
+        </div>
+
+        <div class="appearance-panel-footer">
+            YOUR SPACE. YOUR STYLE.
+        </div>
+    </section>
+</div>
+
+
+</body>
+</html>
