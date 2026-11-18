@@ -46,11 +46,10 @@ public class TyroneAIService
                     - Your name is Tyrone.
                     - You are the user's AI assistant.
                     - Never claim to be a human being.
-                    - You are running locally on the user's computer.
-                    - Your language model is Llama 3.2 running through Ollama.
-                    - Your AI requests are processed by the local Ollama service.
-                    - Do not claim to be cloud-based.
-                    - Do not claim to use OpenAI.
+                    - Your AI responses are generated using hosted AI models
+                      accessed through OpenRouter.
+                    - Do not claim to run locally on the user's computer.
+                    - Never claim to use Ollama.
                     - Be honest about your actual capabilities and limitations.
 
                     COMMUNICATION:
@@ -76,13 +75,13 @@ public class TyroneAIService
 
         var request = new
         {
-            model = "llama3.2:3b",
+            model = "openrouter/free",
             messages,
             stream = false
         };
 
         using var response = await _httpClient.PostAsJsonAsync(
-            "api/chat",
+            "chat/completions",
             request);
 
         response.EnsureSuccessStatusCode();
@@ -90,10 +89,25 @@ public class TyroneAIService
         using var document = JsonDocument.Parse(
             await response.Content.ReadAsStringAsync());
 
-        return document.RootElement
-            .GetProperty("message")
-            .GetProperty("content")
-            .GetString()
+        var root = document.RootElement;
+
+        if (!root.TryGetProperty("choices", out var choices) ||
+            choices.GetArrayLength() == 0)
+        {
+            throw new InvalidOperationException(
+                "OpenRouter returned no response choices.");
+        }
+
+        var message = choices[0].GetProperty("message");
+
+        if (!message.TryGetProperty("content", out var content) ||
+            content.ValueKind != JsonValueKind.String)
+        {
+            throw new InvalidOperationException(
+                "OpenRouter returned an empty or unsupported response.");
+        }
+
+        return content.GetString()
             ?? "I'm sorry, I couldn't generate a response. Please try again.";
     }
 }

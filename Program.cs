@@ -31,10 +31,26 @@ builder.Services
     })
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
-builder.Services.AddHttpClient<TyroneAIService>(client =>
+builder.Services.AddHttpClient<TyroneAIService>((serviceProvider, client) =>
 {
-    client.BaseAddress = new Uri("http://localhost:11434/");
-    client.Timeout = TimeSpan.FromMinutes(5);
+    var configuration = serviceProvider.GetRequiredService<IConfiguration>();
+
+    var apiKey = configuration["OpenRouter:ApiKey"];
+
+    client.BaseAddress = new Uri("https://openrouter.ai/api/v1/");
+    client.Timeout = TimeSpan.FromMinutes(2);
+
+    if (!string.IsNullOrWhiteSpace(apiKey))
+    {
+        client.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue(
+                "Bearer",
+                apiKey);
+    }
+
+    client.DefaultRequestHeaders.Add(
+        "X-OpenRouter-Title",
+        "Tyrone AI");
 });
 builder.Services.AddTransient<EmailService>();
 builder.Services.AddControllers();
