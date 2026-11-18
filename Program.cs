@@ -44,7 +44,14 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 app.UseDefaultFiles();
 app.UseStaticFiles();
+// Apply pending database migrations
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider
+        .GetRequiredService<ApplicationDbContext>();
 
+    db.Database.Migrate();
+}
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
